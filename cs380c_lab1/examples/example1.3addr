@@ -1,0 +1,52 @@
+    instr 1: nop
+    instr 2: entrypc
+    instr 3: enter 8
+    instr 4: move 2 i#-8
+    instr 5: mul 0 8
+    instr 6: add f_base#31936 GP
+    instr 7: add (6) (5)
+    instr 8: store 1 (7)
+    instr 9: mul 1 8
+    instr 10: add f_base#31936 GP
+    instr 11: add (10) (9)
+    instr 12: store 1 (11)
+    instr 13: mul 0 8
+    instr 14: add f_base#31936 GP
+    instr 15: add (14) (13)
+    instr 16: load (15)
+    instr 17: write (16)
+    instr 18: wrl
+    instr 19: mul 1 8
+    instr 20: add f_base#31936 GP
+    instr 21: add (20) (19)
+    instr 22: load (21)
+    instr 23: write (22)
+    instr 24: wrl
+    instr 25: cmplt i#-8 100
+    instr 26: blbc (25) [51]
+    instr 27: mul i#-8 8
+    instr 28: add f_base#31936 GP
+    instr 29: add (28) (27)
+    instr 30: sub i#-8 1
+    instr 31: mul (30) 8
+    instr 32: add f_base#31936 GP
+    instr 33: add (32) (31)
+    instr 34: sub i#-8 2
+    instr 35: mul (34) 8
+    instr 36: add f_base#31936 GP
+    instr 37: add (36) (35)
+    instr 38: load (33)
+    instr 39: load (37)
+    instr 40: add (38) (39)
+    instr 41: store (40) (29)
+    instr 42: mul i#-8 8
+    instr 43: add f_base#31936 GP
+    instr 44: add (43) (42)
+    instr 45: load (44)
+    instr 46: write (45)
+    instr 47: wrl
+    instr 48: add i#-8 1
+    instr 49: move (48) i#-8
+    instr 50: br [25]
+    instr 51: ret 0
+    instr 52: nop

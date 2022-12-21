@@ -1,0 +1,147 @@
+    instr 1: nop
+    instr 2: enter 32
+    instr 3: move 0 i#-16
+    instr 4: move 1 base#-8
+    instr 5: cmplt i#-16 8
+    instr 6: blbc (5) [49]
+    instr 7: neg 1
+    instr 8: move (7) idx#-24
+    instr 9: mul i#-16 8
+    instr 10: add position_base#31960 GP
+    instr 11: add (10) (9)
+    instr 12: load (11)
+    instr 13: move (12) now_posi#-32
+    instr 14: div now_posi#-32 16
+    instr 15: cmple (14) 0
+    instr 16: blbs (15) [21]
+    instr 17: add idx#-24 4
+    instr 18: move (17) idx#-24
+    instr 19: div now_posi#-32 16
+    instr 20: move (19) now_posi#-32
+    instr 21: div now_posi#-32 4
+    instr 22: cmple (21) 0
+    instr 23: blbs (22) [28]
+    instr 24: add idx#-24 2
+    instr 25: move (24) idx#-24
+    instr 26: div now_posi#-32 4
+    instr 27: move (26) now_posi#-32
+    instr 28: add idx#-24 now_posi#-32
+    instr 29: move (28) idx#-24
+    instr 30: add count_base#32024 GP
+    instr 31: load (30)
+    instr 32: mul (31) 8
+    instr 33: add ans_base#32032 GP
+    instr 34: add (33) (32)
+    instr 35: add count_base#32024 GP
+    instr 36: load (35)
+    instr 37: mul (36) 8
+    instr 38: add ans_base#32032 GP
+    instr 39: add (38) (37)
+    instr 40: mul idx#-24 base#-8
+    instr 41: load (39)
+    instr 42: add (41) (40)
+    instr 43: store (42) (34)
+    instr 44: add i#-16 1
+    instr 45: move (44) i#-16
+    instr 46: mul base#-8 8
+    instr 47: move (46) base#-8
+    instr 48: br [5]
+    instr 49: ret 0
+    instr 50: enter 32
+    instr 51: cmpeq level#16 8
+    instr 52: blbc (51) [60]
+    instr 53: call [2]
+    instr 54: add count_base#32024 GP
+    instr 55: load (54)
+    instr 56: add (55) 1
+    instr 57: add count_base#32024 GP
+    instr 58: store (56) (57)
+    instr 59: br [101]
+    instr 60: move ori_mid#40 mid#-8
+    instr 61: move ori_right#32 right#-16
+    instr 62: move ori_left#24 left#-24
+    instr 63: move 1 now_posi#-32
+    instr 64: cmpeq mid#-8 0
+    instr 65: blbs (64) [101]
+    instr 66: mod mid#-8 2
+    instr 67: cmpeq (66) 1
+    instr 68: blbc (67) [92]
+    instr 69: mod right#-16 2
+    instr 70: cmpeq (69) 1
+    instr 71: blbc (70) [92]
+    instr 72: mod left#-24 2
+    instr 73: cmpeq (72) 1
+    instr 74: blbc (73) [92]
+    instr 75: mul level#16 8
+    instr 76: add position_base#31960 GP
+    instr 77: add (76) (75)
+    instr 78: store now_posi#-32 (77)
+    instr 79: sub ori_mid#40 now_posi#-32
+    instr 80: param (79)
+    instr 81: sub ori_right#32 now_posi#-32
+    instr 82: div (81) 2
+    instr 83: add (82) 128
+    instr 84: param (83)
+    instr 85: sub ori_left#24 now_posi#-32
+    instr 86: mul (85) 2
+    instr 87: add (86) 1
+    instr 88: param (87)
+    instr 89: add level#16 1
+    instr 90: param (89)
+    instr 91: call [50]
+    instr 92: mul now_posi#-32 2
+    instr 93: move (92) now_posi#-32
+    instr 94: div mid#-8 2
+    instr 95: move (94) mid#-8
+    instr 96: div right#-16 2
+    instr 97: move (96) right#-16
+    instr 98: div left#-24 2
+    instr 99: move (98) left#-24
+    instr 100: br [64]
+    instr 101: ret 32
+    instr 102: enter 32
+    instr 103: move 0 i#-8
+    instr 104: cmplt i#-8 92
+    instr 105: blbc (104) [134]
+    instr 106: mul i#-8 8
+    instr 107: add ans_base#32032 GP
+    instr 108: add (107) (106)
+    instr 109: load (108)
+    instr 110: move (109) group#-24
+    instr 111: cmple group#-24 0
+    instr 112: blbs (111) [130]
+    instr 113: mod group#-24 8
+    instr 114: move (113) posi#-32
+    instr 115: move 0 j#-16
+    instr 116: cmplt j#-16 8
+    instr 117: blbc (116) [126]
+    instr 118: cmpeq j#-16 posi#-32
+    instr 119: blbc (118) [122]
+    instr 120: write 1
+    instr 121: br [123]
+    instr 122: write 0
+    instr 123: add j#-16 1
+    instr 124: move (123) j#-16
+    instr 125: br [116]
+    instr 126: wrl
+    instr 127: div group#-24 8
+    instr 128: move (127) group#-24
+    instr 129: br [111]
+    instr 130: wrl
+    instr 131: add i#-8 1
+    instr 132: move (131) i#-8
+    instr 133: br [104]
+    instr 134: ret 0
+    instr 135: entrypc
+    instr 136: enter 24
+    instr 137: move 255 mid#-8
+    instr 138: move 255 left#-16
+    instr 139: move 255 right#-24
+    instr 140: param mid#-8
+    instr 141: param left#-16
+    instr 142: param right#-24
+    instr 143: param 0
+    instr 144: call [50]
+    instr 145: call [102]
+    instr 146: ret 0
+    instr 147: nop
